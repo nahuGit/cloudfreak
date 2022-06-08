@@ -22,8 +22,8 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('nahuacr/petclinic', "./docker")
-                 docker.withRegistry('https://nahuacr.azurecr.io', 'acr-demo') {
+                 def customImage = docker.build('nahuecr/petclinic', "./docker")
+                 docker.withRegistry('https://nahuecr.azurecr.io', 'acrdemo') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
            }
